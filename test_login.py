@@ -3,14 +3,11 @@ from selenium.webdriver.common.keys import Keys
 import time
 from setup_login import driver, braip_prod, braip_maps, email, senha
 
-error = AssertionError
 
 class TestLogin:
 
 
-
     def test_login_bem_sucedido(self):
-        
         
         driver.get(braip_prod)
         field_login = driver.find_element(By.XPATH,braip_maps["buttons"]["send_email"]["xpath"])
@@ -23,7 +20,6 @@ class TestLogin:
         time.sleep(5)
         title = driver.title
         print(title)
-        assert 'Braip members - Home' in title  
-        # print(error)      
+        assert 'Braip members - Home' in title     
         time.sleep(.5)
         driver.save_screenshot('screen_01.png')
