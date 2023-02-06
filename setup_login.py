@@ -3,9 +3,10 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-driver.maximize_window()
-# driver.minimize_window()
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+driver = webdriver.Chrome(options=options,service=Service(ChromeDriverManager().install()))
+# driver.maximize_window()
 email = 'felipe.pereira@braip.com'
 email_incorreto = 'felipe@braip.com'
 email_invalido = 'felipe@braip'

@@ -1,0 +1,4 @@
+.scannerwork/
+__pycache__/
+main.py
+nao_test.py
