@@ -14,11 +14,10 @@ class SearchTest(unittest.TestCase):
         attempts = 0
 
         while attempts < max_attempts:
-            login_test = LoginTest()
-            login_test
+            LoginTest
             field_search = driver.find_element(By.XPATH, braip_maps ["buttons"]["send_search"]["xpath"])
             field_search.click()
-            driver.save_screenshot('screen_09.png')
+            driver.save_screenshot('screen_10.png')
             field_search_key = driver.find_element(By.XPATH, braip_maps ["buttons"]["send_search_key"]["xpath"])
             field_search_key.send_keys('aula')
             field_search_key.send_keys(Keys.RETURN)
@@ -28,12 +27,14 @@ class SearchTest(unittest.TestCase):
                 title = driver.title
                 assert'Braip Members - Resultados da Busca' in title
                 print(title)
-                driver.save_screenshot('screen_01.png')
+                driver.save_screenshot('screen_11.png')
+                home = driver.find_element(By.XPATH,braip_maps["buttons"]["home"]["xpath"])
+                home.click()
+                time.sleep(1)
+                print('cheguei')
                 break
             except:
                 attempts += 1
                 print(title)
-
-
-        if attempts == max_attempts:
-            raise Exception("Failed to log in after {} attempts".format(max_attempts))
+                if attempts == max_attempts:
+                    raise
